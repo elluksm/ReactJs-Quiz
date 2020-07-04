@@ -70,7 +70,7 @@ export const checkAnswer = (amount: number): AppThunk => (dispatch) => {
 };
 
 export const userName = (state: RootState) => state.quiz.userName;
-export const availableQuizes = (state: RootState) =>
+export const availableQuizzes = (state: RootState) =>
   state.quiz.availableQuizzes;
 export const correctAnswersCount = (state: RootState) =>
   state.quiz.correctAnswersCount;

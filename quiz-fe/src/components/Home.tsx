@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   getAvailableQuizzes,
   loadQuiz,
-  availableQuizes,
+  availableQuizzes,
 } from "../store/quizSlice";
 
 export const Home: React.FC = () => {
   const history = useHistory();
-  const quizes = useSelector(availableQuizes);
+  const quizes = useSelector(availableQuizzes);
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
 
