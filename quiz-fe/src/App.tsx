@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Quiz } from "./components/Quiz";
 import { Summary } from "./components/Summary";
-import { Counter } from "./features/counter/Counter";
 import "./App.scss";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
     <Router>
       <div>
         <header className="App-header">
-          <Counter />
+          <p>Quiz</p>
         </header>
 
         <Switch>
