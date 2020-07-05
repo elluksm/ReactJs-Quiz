@@ -3,24 +3,32 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { checkAnswer, quizQuestions } from "../store/quizSlice";
 import { QuizQuestion } from "./QuizQuestion";
+import { Container } from "react-bootstrap";
 
 export const Quiz: React.FC = () => {
   const history = useHistory();
   const questions = useSelector(quizQuestions);
   const dispatch = useDispatch();
-  const [input, setInput] = useState("");
+  const [questionIndex, updateQuestionIndex] = useState(0);
 
-  const onSubmit = (): void => {
-    if (input) {
-      // saveAndClose();
+  const onSubmit = async (questionId: string, selectedAnswerId: string) => {
+    await dispatch(checkAnswer(questionId, selectedAnswerId));
+    if (questionIndex >= questions.length - 1) {
+      history.push("/summary");
+    } else {
+      updateQuestionIndex(questionIndex + 1);
     }
-    history.push("/summary");
   };
 
   return (
-    <div>
-      <p>Quiz</p>
-      <QuizQuestion onSubmit={onSubmit} />
-    </div>
+    <Container>
+      {questions[questionIndex] && (
+        <QuizQuestion
+          question={questions[questionIndex]}
+          questionCount={questions.length}
+          onSubmit={onSubmit}
+        />
+      )}
+    </Container>
   );
 };

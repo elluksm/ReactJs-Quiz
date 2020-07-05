@@ -1,15 +1,15 @@
 export interface Quiz {
-  id: string;
+  quizId: string;
   name: string;
 }
 
-export interface QuizQuestion {
-  id: string;
-  questionText: number;
+export interface Question {
+  questionId: string;
+  questionText: string;
   options: QuizQuestionOption[];
 }
 
 export interface QuizQuestionOption {
-  id: string;
-  optionText: number;
+  answerId: string;
+  answerText: string;
 }

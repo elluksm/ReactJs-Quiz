@@ -1,4 +1,4 @@
-import { Quiz, QuizQuestion } from "../types";
+import { Quiz, Question } from "../types";
 
 export const mockQuizzes: Quiz[] = [
   {
@@ -15,26 +15,26 @@ export const mockQuizzes: Quiz[] = [
   },
 ];
 
-export const mockQuizQuestionsPG: QuizQuestion[] = [
+export const mockQuizQuestionsPG: Question[] = [
   {
     questionId: "q01",
     questionText: "Kura ir pasaulē augstākā virsotne?",
     options: [
       {
         answerId: "0",
-        optionText: "Everests",
+        answerText: "Everests",
       },
       {
         answerId: "1",
-        optionText: "Monblāns",
+        answerText: "Monblāns",
       },
       {
         answerId: "2",
-        optionText: "Gaiziņš",
+        answerText: "Gaiziņš",
       },
       {
         answerId: "3",
-        optionText: "Kilimandžāro",
+        answerText: "Kilimandžāro",
       },
     ],
   },
@@ -44,15 +44,15 @@ export const mockQuizQuestionsPG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Plakana",
+        answerText: "Plakana",
       },
       {
         answerId: "1",
-        optionText: "Perfekta lode",
+        answerText: "Perfekta lode",
       },
       {
         answerId: "2",
-        optionText: "Elipsveidīga lode",
+        answerText: "Elipsveidīga lode",
       },
     ],
   },
@@ -62,19 +62,19 @@ export const mockQuizQuestionsPG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Kaspijas jūra",
+        answerText: "Kaspijas jūra",
       },
       {
         answerId: "1",
-        optionText: "Viktorijas ezers",
+        answerText: "Viktorijas ezers",
       },
       {
         answerId: "2",
-        optionText: "Baikāls",
+        answerText: "Baikāls",
       },
       {
         answerId: "3",
-        optionText: "Hūrons",
+        answerText: "Hūrons",
       },
     ],
   },
@@ -84,44 +84,44 @@ export const mockQuizQuestionsPG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Madagaskara",
+        answerText: "Madagaskara",
       },
       {
         answerId: "1",
-        optionText: "Grenlande",
+        answerText: "Grenlande",
       },
       {
         answerId: "2",
-        optionText: "Lielbritānija",
+        answerText: "Lielbritānija",
       },
       {
         answerId: "3",
-        optionText: "Jaungvineja",
+        answerText: "Jaungvineja",
       },
     ],
   },
 ];
 
-export const mockQuizQuestionsLG: QuizQuestion[] = [
+export const mockQuizQuestionsLG: Question[] = [
   {
     questionId: "q11",
     questionText: "Kura ir Latvijas garākā upe?",
     options: [
       {
         answerId: "0",
-        optionText: "Daugava",
+        answerText: "Daugava",
       },
       {
         answerId: "1",
-        optionText: "Gauja",
+        answerText: "Gauja",
       },
       {
         answerId: "2",
-        optionText: "Lielupe",
+        answerText: "Lielupe",
       },
       {
         answerId: "3",
-        optionText: "Venta",
+        answerText: "Venta",
       },
     ],
   },
@@ -131,15 +131,15 @@ export const mockQuizQuestionsLG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Ušurs",
+        answerText: "Ušurs",
       },
       {
         answerId: "1",
-        optionText: "Sventes ezers",
+        answerText: "Sventes ezers",
       },
       {
         answerId: "2",
-        optionText: "Drīdzis",
+        answerText: "Drīdzis",
       },
     ],
   },
@@ -149,44 +149,44 @@ export const mockQuizQuestionsLG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Rāznas ezers",
+        answerText: "Rāznas ezers",
       },
       {
         answerId: "1",
-        optionText: "Burtnieks",
+        answerText: "Burtnieks",
       },
       {
         answerId: "2",
-        optionText: "Engures ezers",
+        answerText: "Engures ezers",
       },
       {
         answerId: "3",
-        optionText: "Lubāns",
+        answerText: "Lubāns",
       },
     ],
   },
 ];
 
-export const mockQuizQuestionsEG: QuizQuestion[] = [
+export const mockQuizQuestionsEG: Question[] = [
   {
     questionId: "q21",
     questionText: "Latvijas galvaspilsēta ir ...",
     options: [
       {
         answerId: "0",
-        optionText: "Tallina",
+        answerText: "Tallina",
       },
       {
         answerId: "1",
-        optionText: "Rīga",
+        answerText: "Rīga",
       },
       {
         answerId: "2",
-        optionText: "Koperniks",
+        answerText: "Koperniks",
       },
       {
         answerId: "3",
-        optionText: "Daugavgrīva",
+        answerText: "Daugavgrīva",
       },
     ],
   },
@@ -196,11 +196,11 @@ export const mockQuizQuestionsEG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Tallina",
+        answerText: "Tallina",
       },
       {
         answerId: "1",
-        optionText: "Pērnava",
+        answerText: "Pērnava",
       },
     ],
   },
@@ -210,19 +210,19 @@ export const mockQuizQuestionsEG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Minhene",
+        answerText: "Minhene",
       },
       {
         answerId: "1",
-        optionText: "Parīze",
+        answerText: "Parīze",
       },
       {
         answerId: "2",
-        optionText: "Roma",
+        answerText: "Roma",
       },
       {
         answerId: "3",
-        optionText: "Berlīne",
+        answerText: "Berlīne",
       },
     ],
   },
@@ -232,19 +232,19 @@ export const mockQuizQuestionsEG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Prāga",
+        answerText: "Prāga",
       },
       {
         answerId: "1",
-        optionText: "Brno",
+        answerText: "Brno",
       },
       {
         answerId: "2",
-        optionText: "Krakova",
+        answerText: "Krakova",
       },
       {
         answerId: "3",
-        optionText: "Bratislava",
+        answerText: "Bratislava",
       },
     ],
   },
@@ -254,19 +254,19 @@ export const mockQuizQuestionsEG: QuizQuestion[] = [
     options: [
       {
         answerId: "0",
-        optionText: "Budapešta",
+        answerText: "Budapešta",
       },
       {
         answerId: "1",
-        optionText: "Zagreba",
+        answerText: "Zagreba",
       },
       {
         answerId: "2",
-        optionText: "Ļubļana",
+        answerText: "Ļubļana",
       },
       {
         answerId: "3",
-        optionText: "Sarajeva",
+        answerText: "Sarajeva",
       },
     ],
   },

@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "./store";
-import { Quiz, QuizQuestion } from "../types";
+import { Quiz, Question } from "../types";
+import { mockQuizzes, mockQuizQuestionsPG } from "./mockData";
 
 interface QuizState {
   userName: string;
   correctAnswersCount: number;
   availableQuizzes: Quiz[];
-  quizQuestions: QuizQuestion[];
+  quizQuestions: Question[];
 }
 
 const initialState: QuizState = {
@@ -27,7 +28,7 @@ export const quizSlice = createSlice({
     },
     startQuiz: (
       state,
-      action: PayloadAction<{ userName: string; quizQuestions: QuizQuestion[] }>
+      action: PayloadAction<{ userName: string; quizQuestions: Question[] }>
     ) => {
       state.userName = action.payload.userName;
       state.quizQuestions = action.payload.quizQuestions;
@@ -51,18 +52,25 @@ export const {
 export const getAvailableQuizzes = (): AppThunk => (dispatch) => {
   //getAvailableQuizes();
   setTimeout(() => {
-    dispatch(setAvailableQuizzes([]));
+    dispatch(setAvailableQuizzes(mockQuizzes));
   }, 1000);
 };
 
-export const loadQuiz = (amount: number): AppThunk => (dispatch) => {
-  //getQuizQuestions();
+export const loadQuiz = (quizId: string, userName: string): AppThunk => (
+  dispatch
+) => {
+  //getQuizQuestions(quizId);
   setTimeout(() => {
-    dispatch(startQuiz({ userName: "user", quizQuestions: [] }));
+    dispatch(
+      startQuiz({ userName: userName, quizQuestions: mockQuizQuestionsPG })
+    );
   }, 1000);
 };
 
-export const checkAnswer = (amount: number): AppThunk => (dispatch) => {
+export const checkAnswer = (
+  questionId: string,
+  selectedAnswerId: string
+): AppThunk => (dispatch) => {
   //checkAnswer();
   setTimeout(() => {
     dispatch(addCorrectAnswer());
@@ -75,5 +83,6 @@ export const availableQuizzes = (state: RootState) =>
 export const correctAnswersCount = (state: RootState) =>
   state.quiz.correctAnswersCount;
 export const quizQuestions = (state: RootState) => state.quiz.quizQuestions;
+export const quizQuestionsCount = (state: RootState) => state.quiz.quizQuestions.length;
 
 export default quizSlice.reducer;

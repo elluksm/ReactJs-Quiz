@@ -1,31 +1,40 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import { Question, QuizQuestionOption } from "../types";
 
 export interface QuizQuestionProps {
-  questionText?: string;
-  options?: string[];
-  onSubmit: () => void;
+  question: Question;
+  questionCount: number;
+  onSubmit: (questionId: string, selectedAnswerId: string) => void;
 }
 
 export const QuizQuestion: React.FC<QuizQuestionProps> = ({
-  questionText,
-  options,
+  question,
+  questionCount,
   onSubmit,
 }) => {
-  const [input, setInput] = useState("");
-
-  const onOptionClick = (): void => {
-    if (input) {
-      // saveAndClose();
-    }
-    onSubmit();
-  };
+  const [selectedAnswerId, setSelectedAnswer] = useState("");
 
   return (
     <div>
-      <p>Quiz Question</p>
-      <button type="button" onClick={onOptionClick}>
-        Save
-      </button>
+      <p>{question.questionText}</p>
+      {question.options.map((option: QuizQuestionOption) => {
+        return (
+          <p
+            key={option.answerId}
+            onClick={() => setSelectedAnswer(option.answerId)}
+          >
+            {option.answerText}
+          </p>
+        );
+      })}
+      <Button
+        variant="primary"
+        disabled={!selectedAnswerId}
+        onClick={() => onSubmit(question.questionId, selectedAnswerId)}
+      >
+        Nākamais
+      </Button>
     </div>
   );
 };

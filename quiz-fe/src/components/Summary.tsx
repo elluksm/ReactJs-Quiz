@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   finishQuizSession,
   userName,
   correctAnswersCount,
+  quizQuestionsCount,
 } from "../store/quizSlice";
+import { Container, Button } from "react-bootstrap";
 
 export const Summary: React.FC = () => {
   const history = useHistory();
   const user = useSelector(userName);
   const correctAnswers = useSelector(correctAnswersCount);
+  const questionsCount = useSelector(quizQuestionsCount);
   const dispatch = useDispatch();
-  const [input, setInput] = useState("");
 
   const onSubmit = (): void => {
-    if (input) {
-      // saveAndClose();
-    }
-    history.push("/home");
+    dispatch(finishQuizSession());
+    history.push("/");
   };
 
   return (
-    <div>
-      <p>Summary</p>
-      <p>{user}</p>
-      <p>{correctAnswers}</p>
-      <button type="button" onClick={onSubmit}>
+    <Container>
+      <p>Paldies, {user}!</p>
+      <p>
+        Tu atbildēji pareizi uz {correctAnswers} no {questionsCount}{" "}
+        jautājumiem.
+      </p>
+      <Button variant="primary" onClick={onSubmit}>
         Uz sākumu
-      </button>
-    </div>
+      </Button>
+    </Container>
   );
 };
