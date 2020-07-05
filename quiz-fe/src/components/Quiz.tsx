@@ -20,12 +20,13 @@ export const Quiz: React.FC = () => {
     }
   };
 
+  const quizProgress = (questionIndex / questions.length) * 100;
   return (
-    <Container>
+    <Container key={questionIndex}>
       {questions[questionIndex] && (
         <QuizQuestion
           question={questions[questionIndex]}
-          questionCount={questions.length}
+          quizProgress={quizProgress}
           onSubmit={onSubmit}
         />
       )}

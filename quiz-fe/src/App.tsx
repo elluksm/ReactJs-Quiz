@@ -7,13 +7,15 @@ import "./App.scss";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/quiz" component={Quiz} />
-        <Route path="/summary" component={Summary} />
-        <Route path="/" component={Home} />
-      </Switch>
-    </Router>
+    <div className="app-container">
+      <Router>
+        <Switch>
+          <Route path="/quiz" component={Quiz} />
+          <Route path="/summary" component={Summary} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

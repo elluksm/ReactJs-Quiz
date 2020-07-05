@@ -8,6 +8,7 @@ import {
   quizQuestionsCount,
 } from "../store/quizSlice";
 import { Container, Button } from "react-bootstrap";
+import "./Summary.scss";
 
 export const Summary: React.FC = () => {
   const history = useHistory();
@@ -22,15 +23,18 @@ export const Summary: React.FC = () => {
   };
 
   return (
-    <Container>
-      <p>Paldies, {user}!</p>
-      <p>
+    <Container className="summary">
+      <h2>Paldies, {user}!</h2>
+      <p className="summary-text">
         Tu atbildēji pareizi uz {correctAnswers} no {questionsCount}{" "}
         jautājumiem.
       </p>
-      <Button variant="primary" onClick={onSubmit}>
-        Uz sākumu
-      </Button>
+
+      <div className="submit-button-container">
+        <Button variant="outline-success" size="lg" onClick={onSubmit}>
+          Uz sākumu
+        </Button>
+      </div>
     </Container>
   );
 };

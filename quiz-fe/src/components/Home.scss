@@ -1,0 +1,12 @@
+.quiz-selection {
+    padding-top: 100px;
+
+    .heading-text {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .was-validated .form-control:invalid, .was-validated .form-control:valid {
+        background-position: right calc(.975em + .1875rem) center;
+    }
+}
