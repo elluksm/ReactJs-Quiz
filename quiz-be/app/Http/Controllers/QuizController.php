@@ -10,9 +10,9 @@ class QuizController extends Controller
     {
         // return Quiz::all();
         $quizListMock = array(
-            array('value' => '0', 'text' => 'Ģeogrāfija'),
-            array('value' => '1', 'text' => 'Galvaspilsētas'),
-            array('value' => '2', 'text' => 'Matemātika'),
+            array('quizId' => '0', 'name' => 'Pasaules ģeogrāfija'),
+            array('quizId' => '1', 'name' => 'Latvijas ģeogrāfija'),
+            array('quizId' => '2', 'name' => 'Eiropas galvaspilsētas'),
         );
         $data = $quizListMock;
         $code = 200;

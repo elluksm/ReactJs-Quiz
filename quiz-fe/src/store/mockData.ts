@@ -2,15 +2,15 @@ import { Quiz, Question } from "../types";
 
 export const mockQuizzes: Quiz[] = [
   {
-    quizId: "pasaulesGeografija",
+    quizId: "0",
     name: "Pasaules ģeogrāfija",
   },
   {
-    quizId: "latvijasGeografija",
+    quizId: "1",
     name: "Latvijas ģeogrāfija",
   },
   {
-    quizId: "eiropasGalvaspilsetas",
+    quizId: "2",
     name: "Eiropas galvaspilsētas",
   },
 ];

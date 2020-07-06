@@ -49,32 +49,59 @@ export const {
   finishQuizSession,
 } = quizSlice.actions;
 
-export const getAvailableQuizzes = (): AppThunk => (dispatch) => {
-  //getAvailableQuizes();
-  setTimeout(() => {
+export const getAvailableQuizzes = (): AppThunk => async (dispatch) => {
+  try {
+    const response = await fetch(`http://localhost:8000/api/quizes`);
+    const jsonResponse = await response.json();
+    dispatch(setAvailableQuizzes(jsonResponse));
+  } catch (err) {
+    console.log(err);
+    console.log("Error loading data from server - using mock data");
     dispatch(setAvailableQuizzes(mockQuizzes));
-  }, 1000);
+  }
 };
 
-export const loadQuiz = (quizId: string, userName: string): AppThunk => (
+export const loadQuiz = (quizId: string, userName: string): AppThunk => async (
   dispatch
 ) => {
-  //getQuizQuestions(quizId);
-  setTimeout(() => {
+  try {
+    const response = await fetch(`http://localhost:8000/api/quizes/${quizId}`);
+    const jsonResponse = await response.json();
+    dispatch(startQuiz({ userName: userName, quizQuestions: jsonResponse }));
+  } catch (err) {
+    console.log(err);
+    console.log("Error loading data from server - using mock data");
     dispatch(
       startQuiz({ userName: userName, quizQuestions: mockQuizQuestionsPG })
     );
-  }, 1000);
+  }
 };
 
 export const checkAnswer = (
   questionId: string,
   selectedAnswerId: string
-): AppThunk => (dispatch) => {
-  //checkAnswer();
-  setTimeout(() => {
-    dispatch(addCorrectAnswer());
-  }, 1000);
+): AppThunk => async (dispatch) => {
+  try {
+    const response = await fetch(
+      `http://localhost:8000/api/quizes/check/`,
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          questionId: questionId,
+          answerId: selectedAnswerId,
+        }),
+      }
+    );
+    const isAnswerCorrect = await response.json();
+    console.log(isAnswerCorrect);
+    if (isAnswerCorrect) {
+      dispatch(addCorrectAnswer());
+    }
+  } catch (err) {
+    console.log(err);
+    console.log("Error occurred - we couldn't check if answer is correct.");
+  }
 };
 
 export const userName = (state: RootState) => state.quiz.userName;
@@ -83,6 +110,7 @@ export const availableQuizzes = (state: RootState) =>
 export const correctAnswersCount = (state: RootState) =>
   state.quiz.correctAnswersCount;
 export const quizQuestions = (state: RootState) => state.quiz.quizQuestions;
-export const quizQuestionsCount = (state: RootState) => state.quiz.quizQuestions.length;
+export const quizQuestionsCount = (state: RootState) =>
+  state.quiz.quizQuestions.length;
 
 export default quizSlice.reducer;
