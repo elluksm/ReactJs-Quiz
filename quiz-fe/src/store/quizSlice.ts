@@ -94,7 +94,6 @@ export const checkAnswer = (
       }
     );
     const isAnswerCorrect = await response.json();
-    console.log(isAnswerCorrect);
     if (isAnswerCorrect) {
       dispatch(addCorrectAnswer());
     }
